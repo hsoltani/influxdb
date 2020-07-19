@@ -1,0 +1,25 @@
+labels:
+  io.cattle.role: cluster # options are cluster/project
+  io.rancher.app_min_version: 7.3.8
+categories:
+- Blog
+- CMS
+questions:
+- variable: defaultImage
+  default: true
+  description: "Use default Docker image"
+  label: Use Default Image
+  type: boolean
+  show_subquestion_if: false
+  group: "Container Images"
+  subquestions:
+  - variable: redis.image.repository
+    default: "redis"
+    description: "redis image name"
+    type: string
+    label: redis Image Name
+  - variable: redis.image.tag
+    default: "4.0.10"
+    description: "redis image tag"
+    type: string
+    label: Image Tag
