@@ -229,7 +229,7 @@ spec:
             {{- end }}
             {{- if .Values.persistence.enabled }}
             - name: data
-              mountPath: /bitnami/influxdb
+              mountPath: /var/lib/influxdb
             {{- end }}
       volumes:
         {{- if or (.Files.Glob "files/conf/influxdb.conf") .Values.influxdb.configuration .Values.influxdb.existingConfiguration }}
