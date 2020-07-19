@@ -82,7 +82,7 @@ spec:
           {{- end }}
           volumeMounts:
             - name: data
-              mountPath: /bitnami/influxdb
+              mountPath: /var/lib/influxdb
       {{- end }}
       containers:
         - name: influxdb
