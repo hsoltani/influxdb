@@ -13,13 +13,36 @@ questions:
   show_subquestion_if: false
   group: "Container Images"
   subquestions:
-  - variable: redis.image.repository
-    default: "redis"
-    description: "redis image name"
+  - variable: image.repository
+    default: "bitnami/influxdb"
+    description: "influxdb image name"
     type: string
-    label: redis Image Name
-  - variable: redis.image.tag
-    default: "4.0.10"
-    description: "redis image tag"
+    label: influxdb Image Name
+  - variable: image.tag
+    default: "1.8.1-debian-10-r3"
+    description: "influxdb image tag"
     type: string
     label: Image Tag
+
+- variable: image.debug
+  default: "false"
+  description: "image debug"
+  type: boolean
+  required: true
+  label: image debug
+  group: "influxdb Settings"
+- variable: database
+  default: "my_database"
+  description: "database"
+  type: string
+  required: true
+  label: image database
+  group: "influxdb Settings"
+      
+- variable: service.type
+  default: "ClusterIP"
+  description: "k8s service type for influxdb nodes"
+  type: string
+  required: true
+  label: service type
+  group: "influxdb Settings"
