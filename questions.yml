@@ -46,3 +46,28 @@ questions:
   required: true
   label: service type
   group: "influxdb Settings"
+- variable: persistence.enabled
+  default: false
+  description: "Enable persistent volume for influxdb"
+  type: boolean
+  required: true
+  label: influxdb Persistent Volume Enabled
+  show_subquestion_if: true
+  group: "influxdb Settings"
+  subquestions:
+  - variable: persistence.size
+    default: "10Gi"
+    description: "influxdb Persistent Volume Size"
+    type: string
+    label: influxdb Volume Size
+  - variable: persistence.storageClass
+    default: ""
+    description: "If undefined or null, uses the default StorageClass. Default to null"
+    type: storageclass
+    label: Default StorageClass for influxdb
+  - variable: persistence.existingClaim
+    default: ""
+    description: "If not empty, uses the specified existing PVC instead of creating new one"
+    type: pvc
+    label: Existing Persistent Volume Claim for influxdb
+    
